@@ -11,8 +11,10 @@ import Moya
 import Result
 
 private let provider = MoyaProvider<RKApi>(plugins:[
+    RKService(),                //接口
     RKReqCommonParamsPlugin(),  // 拼接公共参数
     RKNetwork.rklogPlugin,      // 日志控制
+    
 ])
 
 // MARK: - 

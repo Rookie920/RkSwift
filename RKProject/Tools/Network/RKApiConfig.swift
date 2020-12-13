@@ -14,9 +14,9 @@ public extension TargetType {
     var baseURL:URL {
         return URL(string: rkhostPath)!
     }
-//    var path: String{
-//        return ""
-//    }
+    var path: String{
+        return ""
+    }
     var headers: [String: String]? {
         return nil
     }
@@ -35,6 +35,11 @@ extension URLRequest {
                 "system":rksystemName,
         ]
     }
+    mutating func appendApi(api:[String:Any]) -> URLRequest {
+        let request = try?rkencod(params: api, paramsEncodeing: URLEncoding(destination: .queryString))
+        assert(request != nil,"check common params value")
+        return request!
+    }
     mutating func appendCommonParams() -> URLRequest {
         let request = try?rkencod(params: commonParams, paramsEncodeing: URLEncoding(destination: .queryString))
         assert(request != nil,"check common params value")
@@ -49,7 +54,7 @@ extension URLRequest {
     }
 }
 
-//拼接公共参数
+// 拼接公共参数
 class RKReqCommonParamsPlugin: PluginType {
     public func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
         var mutatebleReq = request
