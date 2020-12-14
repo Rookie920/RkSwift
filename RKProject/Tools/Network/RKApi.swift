@@ -15,21 +15,27 @@ import Moya
     
 }
 
+class RKService: PluginType {
+    public func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
+        var mutatebleReq = request
+        var params: [String:Any] = [:]
+        
+        switch target {
+        case RKApi.homeConfig:
+            params["service"] = "home.getconfig"
+        default:
+            params["service"] = "home.getconfig"
+        }
+        return mutatebleReq.appendApi(api: params)
+    }
+}
+
 extension RKApi: TargetType{
     
-    var path: String{
-//        return ""
-        switch self {
-        case .homeConfig:
-            return "?service=home.getconfig"
-        default:
-            return ""
-        }
-    }
     var method: Moya.Method{
         switch self {
         case .homeConfig:
-            return .get
+            return .post
         default:
             return .get
         }
@@ -39,7 +45,6 @@ extension RKApi: TargetType{
         
         switch self {
         case .homeConfig:
-//            params["service"] = "home.getconfig"
             params["rk1"] = "abc"
             params["rk2"] = "abc"
             params["rk3"] = "abc"
