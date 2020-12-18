@@ -24,7 +24,6 @@ public extension TargetType {
         return "{}".data(using: String.Encoding.utf8)!
     }
 }
-
 // 公共参数
 extension URLRequest {
     private var commonParams:[String: Any]?{
@@ -35,13 +34,23 @@ extension URLRequest {
                 "system":rksystemName,
         ]
     }
-    mutating func appendApi(api:[String:Any]) -> URLRequest {
-        let request = try?rkencod(params: api, paramsEncodeing: URLEncoding(destination: .queryString))
+}
+
+// 拼接公共参数
+class RKReqCommonParamsPlugin: PluginType {
+    public func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
+        var mutatebleReq = request
+        return mutatebleReq.appendCommonParams()
+    }
+}
+extension URLRequest {
+    mutating func appendCommonParams() -> URLRequest {
+        let request = try?rkencod(params: commonParams, paramsEncodeing: URLEncoding(destination: .queryString))
         assert(request != nil,"check common params value")
         return request!
     }
-    mutating func appendCommonParams() -> URLRequest {
-        let request = try?rkencod(params: commonParams, paramsEncodeing: URLEncoding(destination: .queryString))
+    mutating func appendApi(api:[String:Any]) -> URLRequest {
+        let request = try?rkencod(params: api, paramsEncodeing: URLEncoding(destination: .queryString))
         assert(request != nil,"check common params value")
         return request!
     }
@@ -53,13 +62,4 @@ extension URLRequest {
         }
     }
 }
-
-// 拼接公共参数
-class RKReqCommonParamsPlugin: PluginType {
-    public func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
-        var mutatebleReq = request
-        return mutatebleReq.appendCommonParams()
-    }
-}
-
 

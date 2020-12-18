@@ -145,7 +145,7 @@ public func rkprint(_ items: Any..., separator: String = " ", terminator: String
             //print("\n---------- \(fileName) ----------\nDate:\(stringOfDate)\nLine:\(line) \nlog:")
             //print("\n---------- \(fileName)[\(line)] ----------\nDate:\(stringOfDate)\nlog:")
             //print("\n---------- RKCtrMsg ----------\nDate:\(stringOfDate)\nFile:\(fileName)\nLine:\(line)\nlog:\n-->")
-            print("\n\n\(stringOfDate) -> \(fileName): -> line: \(line) ↓\n")
+            print("\n\(stringOfDate) -> \(fileName): -> line: \(line) ↓\n")
         }
         i += 1
         print(a, terminator:i == j ? terminator: separator)

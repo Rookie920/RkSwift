@@ -27,14 +27,14 @@ let rkAlertTitleCor = UIColor(hexString: "#323232")
 let rkAlertContentCor = UIColor(hexString: "#969696")
 
 /// 刘海屏
-let rkIsiPhoneX = (rkScreenHeight >= 812)
+let rkIsiPhoneX = (rkScreenHeight >= 812.0)
 
 let rkStatusBarHeight:CGFloat = rkIsiPhoneX ? 44 : 20
-let rkNaviContentHeight:CGFloat = 44
+let rkNaviContentHeight:CGFloat = 44.0
 let rkNaviHeight = rkStatusBarHeight + rkNaviContentHeight
 
-let rkTabBarSafeSpace:CGFloat = rkIsiPhoneX ? 34 : 0
-let rkTabBarContentHeight:CGFloat = 49
+let rkTabBarSafeSpace:CGFloat = rkIsiPhoneX ? 34.0 : 0.0
+let rkTabBarContentHeight:CGFloat = 49.0
 let rkTabBarHeight = rkTabBarSafeSpace + rkTabBarContentHeight
 
 /// 语言

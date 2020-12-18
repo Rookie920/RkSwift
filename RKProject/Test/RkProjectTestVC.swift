@@ -13,11 +13,8 @@ class RkProjectTestVC: RKBaseVC {
         super.viewDidLoad()
         
 //        let cor = "#123456".rkStringConvertColor()
-//
 //        let corW = UIColor(hexString: "ffffff", alpha: 1.0)
-//
 //        rkprint("corlor1:\(cor)===corlor2:\(corW)")
-        
         
         let btn = UIButton()
         btn.backgroundColor = .red

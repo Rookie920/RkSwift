@@ -15,7 +15,7 @@ import Moya
     
 }
 
-class RKService: PluginType {
+class RKServicePlugin: PluginType {
     public func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
         var mutatebleReq = request
         var params: [String:Any] = [:]

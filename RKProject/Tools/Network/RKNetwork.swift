@@ -9,42 +9,76 @@ import Foundation
 
 import Moya
 import Result
+import HandyJSON
 
-private let provider = MoyaProvider<RKApi>(plugins:[
-    RKService(),                //接口
+let timeoutClosure = {(endpoint: Endpoint, closure: MoyaProvider<RKApi>.RequestResultClosure) -> Void in
+    if var urlRequest = try? endpoint.urlRequest() {
+        urlRequest.timeoutInterval = 20
+        closure(.success(urlRequest))
+    } else {
+        closure(.failure(MoyaError.requestMapping(endpoint.url)))
+    }
+}
+let rkprovider = MoyaProvider<RKApi>(requestClosure: timeoutClosure,plugins:[
+    RKServicePlugin(),          //接口
     RKReqCommonParamsPlugin(),  // 拼接公共参数
     RKNetwork.rklogPlugin,      // 日志控制
-    
 ])
 
 // MARK: - 
 public class RKNetwork {
 
-    public class func rkloadData<T: TargetType, D: Decodable>(target: T, model: D.Type?, showHud: Bool? = nil,cache:((D?) -> Void)? = nil, success: @escaping((D?,Data?) -> Void), failure:((Int?,String) -> Void)?){
-        
+    public class func rkloadData<T: TargetType, H: HandyJSON>(target: T, model: H.Type?, showHud: Bool? = nil,cache:((H?) -> Void)? = nil, success: @escaping((H?,Data?) -> Void), failure:((Int?,String) -> Void)?){
+
         if let isShow = showHud {
             if isShow {
                 rkLoadingHud()
             }
         }
-        provider.request(target as! RKApi) { (result) in
+        rkprovider.request(target as! RKApi) { (result) in
             rkHideHud()
+            let netStatusCode = result.value?.statusCode
+            if netStatusCode == 200{
+                let model = try? result.value?.rkmapModel(RKRespData<H>.self)
+                let serverRet = model?.ret
+                if serverRet == 200 {
+                    let serverDataDic = model?.data?.toJSON()
+                    let serverCode = serverDataDic?["code"];
+                    if let serLogCode = serverCode as? Int,serLogCode == 700 {
+                        rkprint("need-log")
+                        /*
+                        let cuss = RkProjectTestVC()
+                        rkTopVC?.navigationController?.pushViewController(cuss, animated: true)
+                        */
+                        return
+                    }
+                    let jsonData = result.value?.data
+                    success(model?.data,jsonData)
+                }else {
+                    let erroMessage = "Service Error " + (model?.msg ?? "")
+                    failureHandle(failure: failure, statusCode: serverRet, message: erroMessage)
+                }
+            }else {
+                let erroMessage = "Net Error " + String(result.value?.description ?? "")
+                failureHandle(failure: failure, statusCode: netStatusCode, message: erroMessage)
+            }
+            /*
             switch result {
             case let .success(response):
-                let model = try? response.map(D.self)
+                let model = try? response.rkmapModel(RKRespData<H>.self)
                 let jsonData = response.data
-                success(model,jsonData)
+                success((model as? H),jsonData)
             case let .failure(error):
                 let statusCode = error.response?.statusCode ?? -1
                 let erroMessage = "Net Error" + String(statusCode) + (error.errorDescription ?? "-")
                 failureHandle(failure: failure, statusCode: statusCode, message: erroMessage)
             }
+            */
         }
         func failureHandle(failure:((Int?,String) -> Void)?, statusCode: Int?, message: String){
+            rkShowHud(title: message)
             failure?(statusCode,message)
         }
-        
-        
     }
     
     //打印控制
@@ -60,4 +94,12 @@ public class RKNetwork {
         }
     }
 }
-
+extension Response {
+    func rkmapModel<H: HandyJSON>(_ type: H.Type) throws -> H {
+        let jsonString = String(data: data, encoding: .utf8)
+        guard let model = JSONDeserializer<H>.deserializeFrom(json: jsonString) else {
+            throw MoyaError.jsonMapping(self)
+        }
+        return model
+    }
+}

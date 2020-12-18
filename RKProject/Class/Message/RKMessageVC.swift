@@ -9,7 +9,7 @@ import UIKit
 
 class RKMessageVC: RKBaseVC {
 
-    var homeModel: RKModel?
+    private var homeModel = HomeConfigModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         leftItem.isHidden = true
@@ -20,12 +20,16 @@ class RKMessageVC: RKBaseVC {
         
     }
     override func clickNaviRightBtn() {
-        RKNetwork.rkloadData(target: RKApi.homeConfig, model: RKModel.self, showHud: true) { (model, jsonData) in
-            self.homeModel = model
-            let infoaaa = self.homeModel?.data.info?.configInfo
-            rkprint("home:\(String(describing: infoaaa))")
+        RKNetwork.rkloadData(target: RKApi.homeConfig, model: HomeConfigData.self, showHud: true) { [self] (returnData, jsonData) in
+            guard let info = returnData?.info , info.count > 0 else {
+                rkShowHud(title: rkLocalized(key: "信息错误"))
+                return
+            }
+            self.homeModel = info[0]
+            rkprint("home:\(self.homeModel.login_type?[0] ?? "-1")")
+            rkprint("guid:\(self.homeModel.guide?.switch ?? "-1")")
         } failure: { (stateCode, msg) in
-            
+
         }
 
     }

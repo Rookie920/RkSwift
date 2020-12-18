@@ -7,32 +7,33 @@
 
 import Foundation
 
-struct RKModel: Codable {
-    
-    var ret: Int
-    var msg: String
-    var data: reqData
-    struct reqData: Codable{
-        var code: Int
-        var msg: String
-        var info :InfoData?
-        
-    }
-    
-    struct InfoData: Codable {
-        var configInfo:[homeConfig]?
-    }
-    
-    //配置
-    struct homeConfig: Codable {
-        var site_name: String
-        var site_seo_title: String
-    }
-    
-    
-    
-    
-    
-    
-    
+import HandyJSON
+
+extension Array: HandyJSON{}
+extension Dictionary :HandyJSON{}
+
+// Response
+struct RKRespData<H: HandyJSON>: HandyJSON {
+    var ret: Int = -1
+    var msg: String = "suc"
+    var data: H?
+}
+
+//MARK: - homeconfig
+struct HomeConfigData: HandyJSON {
+    var code: Int = -1
+    var msg: String = "suc"
+    var info: [HomeConfigModel]?
+}
+struct HomeConfigModel: HandyJSON {
+    var site_name: String = ""
+    var site_seo_title: String = ""
+    var apk_ver: String = ""
+    var guide: GuideModel?
+    var login_type: [String]?
+}
+struct GuideModel: HandyJSON {
+    var `switch`: String = ""
+    var type: String = ""
+    var time: String = ""
 }
