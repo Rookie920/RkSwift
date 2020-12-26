@@ -28,7 +28,7 @@ let rkprovider = MoyaProvider<RKApi>(requestClosure: timeoutClosure,plugins:[
 // MARK: - 
 public class RKNetwork {
 
-    public class func rkloadData<T: TargetType, H: HandyJSON>(target: T, model: H.Type?, showHud: Bool? = nil,cache:((H?) -> Void)? = nil, success: @escaping((H?,Data?) -> Void), failure:((Int?,String) -> Void)?){
+    public class func rkloadData<T: TargetType, H: HandyJSON>(target: T, model: H.Type?, showHud: Bool? = nil,cache:((H?) -> Void)? = nil, success: @escaping((H?,Dictionary<String, Any>?) -> Void), failure:((Int?,String) -> Void)?){
 
         if let isShow = showHud {
             if isShow {
@@ -52,8 +52,12 @@ public class RKNetwork {
                         */
                         return
                     }
-                    let jsonData = result.value?.data
-                    success(model?.data,jsonData)
+                    let dataDic = dataToDic(data: result.value?.data ?? Data())
+                    var jsonDic:[String:Any] = [:]
+                    if let dic = dataDic?["data"] {
+                        jsonDic = dic as! [String : Any]
+                    }
+                    success(model?.data,jsonDic)
                 }else {
                     let erroMessage = "Service Error " + (model?.msg ?? "")
                     failureHandle(failure: failure, statusCode: serverRet, message: erroMessage)
@@ -78,6 +82,16 @@ public class RKNetwork {
         func failureHandle(failure:((Int?,String) -> Void)?, statusCode: Int?, message: String){
             rkShowHud(title: message)
             failure?(statusCode,message)
+        }
+        
+        func dataToDic(data: Data)-> Dictionary<String,Any>?{
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+                let dic = json as! Dictionary<String,Any>
+                return dic
+            } catch _ {
+                return [:]
+            }
         }
     }
     
