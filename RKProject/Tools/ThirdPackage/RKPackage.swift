@@ -10,6 +10,22 @@ import Foundation
 import UIKit
 import MBProgressHUD
 import MJRefresh
+import Kingfisher
+
+// MARK: -
+// MARK: - Kingfisher
+extension Kingfisher where Base: ImageView {
+    @discardableResult
+    public func setImage(urlString: String?, placeholder: Placeholder? = UIImage(named: "1")) -> RetrieveImageTask {
+        return setImage(with: URL(string: urlString ?? ""), placeholder: placeholder,options: [.transition(.fade(0.5))])
+    }
+}
+extension Kingfisher where Base: UIButton {
+    @discardableResult
+    public func setImage(urlString: String?, for state: UIControl.State, placeholder: UIImage? = UIImage(named: "1")) -> RetrieveImageTask{
+        return setImage(with: URL(string: urlString ?? ""), for: state, placeholder: placeholder, options: [.transition(.fade(0.5))])
+    }
+}
 
 // MARK: -
 // MARK: - 提示框自定义

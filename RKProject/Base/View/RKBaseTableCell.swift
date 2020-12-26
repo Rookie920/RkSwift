@@ -8,6 +8,7 @@
 import UIKit
 
 import Reusable
+import Kingfisher
 
 class RKBaseTableCell: UITableViewCell ,Reusable{
 

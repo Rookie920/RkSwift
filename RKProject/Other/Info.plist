@@ -27,6 +27,13 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>RKTestKey</key>
+	<string>111</string>
+	<key>RKTestKey1</key>
+	<dict>
+		<key>akey</key>
+		<string>111</string>
+	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

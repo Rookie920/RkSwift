@@ -45,6 +45,7 @@
 		9C6CC429257B79CB00936284 /* refresh_loading_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C6CC428257B79CB00936284 /* refresh_loading_3@2x.png */; };
 		9C6CC42C257B79D400936284 /* refresh_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C6CC42B257B79D400936284 /* refresh_normal@2x.png */; };
 		9C6CC42F257B79DD00936284 /* refresh_will_refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C6CC42E257B79DD00936284 /* refresh_will_refresh@2x.png */; };
+		9C8492E525971A9D00321E9B /* RKMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8492E425971A9D00321E9B /* RKMessageCell.swift */; };
 		9C8DDBC82576486D00E000A8 /* RKPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DDBC72576486D00E000A8 /* RKPackage.swift */; };
 		9CB187782584666F000FF2C9 /* RKLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB187772584666E000FF2C9 /* RKLogs.swift */; };
 		9CE3657F256C98CF00E7BD6D /* RKExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE3657E256C98CF00E7BD6D /* RKExtension.swift */; };
@@ -115,6 +116,7 @@
 		9C6CC428257B79CB00936284 /* refresh_loading_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh_loading_3@2x.png"; sourceTree = "<group>"; };
 		9C6CC42B257B79D400936284 /* refresh_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh_normal@2x.png"; sourceTree = "<group>"; };
 		9C6CC42E257B79DD00936284 /* refresh_will_refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh_will_refresh@2x.png"; sourceTree = "<group>"; };
+		9C8492E425971A9D00321E9B /* RKMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKMessageCell.swift; sourceTree = "<group>"; };
 		9C8DDBC72576486D00E000A8 /* RKPackage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKPackage.swift; sourceTree = "<group>"; };
 		9CB187772584666E000FF2C9 /* RKLogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKLogs.swift; sourceTree = "<group>"; };
 		9CE3657E256C98CF00E7BD6D /* RKExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKExtension.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 		9C03709E256912B70004D613 /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				9C8492E325971A7100321E9B /* view */,
 				9CE365CE256E593700E7BD6D /* RKMessageVC.swift */,
 			);
 			path = Message;
@@ -372,6 +375,14 @@
 				9C6CC42E257B79DD00936284 /* refresh_will_refresh@2x.png */,
 			);
 			path = "刷新";
+			sourceTree = "<group>";
+		};
+		9C8492E325971A7100321E9B /* view */ = {
+			isa = PBXGroup;
+			children = (
+				9C8492E425971A9D00321E9B /* RKMessageCell.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		9C8DDBC6257647F300E000A8 /* ThirdPackage */ = {
@@ -636,6 +647,7 @@
 				9CFA03CB2568A6C3001FF834 /* AppDelegate.swift in Sources */,
 				9CE365CF256E593700E7BD6D /* RKMessageVC.swift in Sources */,
 				9CE365C2256DF01000E7BD6D /* RKWebVC.swift in Sources */,
+				9C8492E525971A9D00321E9B /* RKMessageCell.swift in Sources */,
 				9C6CC415257B1FFE00936284 /* RKBaseTableCell.swift in Sources */,
 				9C0370C5256913610004D613 /* RKBaseVC.swift in Sources */,
 				9CE365D2256E595000E7BD6D /* RKDiscoverVC.swift in Sources */,

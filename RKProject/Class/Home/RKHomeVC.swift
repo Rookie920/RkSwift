@@ -28,7 +28,21 @@ class RKHomeVC: RKBaseVC {
     
     override func clickNaviRightBtn() {
         
+        var infoDic = Bundle.main.infoDictionary
+        rkprint("or:\(infoDic!["RKTestKey"] ?? "--")")
+        infoDic!["RKTestKey"] = "2222"
+        rkprint("now:\(infoDic!["RKTestKey"] ?? "==")")
         
+        rkprint("or:\(infoDic!["RKTestKey1"] ?? "--")")
+//        infoDic!["RKTestKey1"] = ["akey":"value"]
+//        rkprint("now:\(infoDic!["RKTestKey1"] ?? "==")")
+        
+        var testDic:[String:String] = infoDic!["RKTestKey1"] as! [String : String]
+        testDic["akey"] = "234"
+        infoDic!["RKTestKey1"] = testDic
+        rkprint("type2:\(infoDic!["RKTestKey1"] ?? "==")")
+        
+        /*
         RKNetwork.rkloadData(target: RKApi.homeConfig, model: HomeConfigData.self, showHud: true) { [self] (returnData, jsonData) in
             guard let info = returnData?.info , info.count > 0 else {
                 rkShowHud(title: rkLocalized(key: "信息错误"))
@@ -40,7 +54,7 @@ class RKHomeVC: RKBaseVC {
         } failure: { (stateCode, msg) in
 
         }
-        
+        */
         
         /*
         let cuss = RkProjectTestVC()
