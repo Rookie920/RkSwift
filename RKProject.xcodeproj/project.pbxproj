@@ -32,6 +32,7 @@
 		9C16C5482580BAFE007B940A /* RKApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16C5472580BAFE007B940A /* RKApi.swift */; };
 		9C16C54B2580BB11007B940A /* RKModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16C54A2580BB11007B940A /* RKModel.swift */; };
 		9C16C54E2580BC4E007B940A /* RKLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16C54D2580BC4E007B940A /* RKLinks.swift */; };
+		9C611EC725B2B7B400CEDDC8 /* RKRxOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C611EC625B2B7B400CEDDC8 /* RKRxOperators.swift */; };
 		9C6CC3FD257A5B8F00936284 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9C6CC3FF257A5B8F00936284 /* InfoPlist.strings */; };
 		9C6CC404257A5BC800936284 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9C6CC406257A5BC800936284 /* Localizable.strings */; };
 		9C6CC40A257A5DAB00936284 /* RKLanguageTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6CC409257A5DAB00936284 /* RKLanguageTool.swift */; };
@@ -99,6 +100,7 @@
 		9C16C5472580BAFE007B940A /* RKApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKApi.swift; sourceTree = "<group>"; };
 		9C16C54A2580BB11007B940A /* RKModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKModel.swift; sourceTree = "<group>"; };
 		9C16C54D2580BC4E007B940A /* RKLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKLinks.swift; sourceTree = "<group>"; };
+		9C611EC625B2B7B400CEDDC8 /* RKRxOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKRxOperators.swift; sourceTree = "<group>"; };
 		9C6CC3F7257A5B3800936284 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		9C6CC3F8257A5B3800936284 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		9C6CC3FE257A5B8F00936284 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				9CE3657E256C98CF00E7BD6D /* RKExtension.swift */,
+				9C611EC625B2B7B400CEDDC8 /* RKRxOperators.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 				9CB187782584666F000FF2C9 /* RKLogs.swift in Sources */,
 				9C16C5452580BAE9007B940A /* RKApiConfig.swift in Sources */,
 				9C16C5482580BAFE007B940A /* RKApi.swift in Sources */,
+				9C611EC725B2B7B400CEDDC8 /* RKRxOperators.swift in Sources */,
 				9C6CC40F257B1EB500936284 /* RKMineCell.swift in Sources */,
 				9CE365CC256E592100E7BD6D /* RKHomeVC.swift in Sources */,
 				9CE3657F256C98CF00E7BD6D /* RKExtension.swift in Sources */,

@@ -17,6 +17,15 @@ class RKMessageCell: RKBaseTableCell {
         imgIV.contentMode = .scaleAspectFill
         return imgIV
     }()
+    lazy var contentBtn: UIButton = {
+        let btn = UIButton(type: .custom)
+        btn.setTitleColor(UIColor(hexString: "#f5f5f5"), for: .normal)
+        btn.titleLabel?.font = UIFont.rkFont(ofSize: 15)
+        btn.layer.cornerRadius = 3
+        btn.layer.masksToBounds = true
+        btn.clipsToBounds = true
+        return btn
+    }()
     
     override func configCellUI() {
         
@@ -26,6 +35,12 @@ class RKMessageCell: RKBaseTableCell {
             make.width.equalTo(leftIV.snp.height)
             make.centerY.equalTo(self)
             make.left.equalTo(15)
+        }
+        addSubview(contentBtn)
+        contentBtn.snp.makeConstraints { (make) in
+            make.left.equalTo(leftIV.snp.right).offset(10)
+            make.centerY.equalTo(self)
+            make.width.height.equalTo(rklayout(80))
         }
         
     }

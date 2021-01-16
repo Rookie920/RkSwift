@@ -14,6 +14,19 @@ import Kingfisher
 
 // MARK: -
 // MARK: - Kingfisher
+extension ImageView {
+    @discardableResult
+    public func rksetImage(urlString: String?, placeholder: Placeholder? = UIImage(named: "1")) -> RetrieveImageTask {
+        return self.kf.setImage(with: URL(string: urlString ?? ""), placeholder: placeholder,options: [.transition(.fade(0.5))])
+    }
+}
+extension UIButton {
+    @discardableResult
+    public func rksetImage(urlString: String?, for state: UIControl.State, placeholder: UIImage? = UIImage(named: "1")) -> RetrieveImageTask{
+        return self.kf.setImage(with: URL(string: urlString ?? ""), for: state, placeholder: placeholder, options: [.transition(.fade(0.5))])
+    }
+}
+/*
 extension Kingfisher where Base: ImageView {
     @discardableResult
     public func setImage(urlString: String?, placeholder: Placeholder? = UIImage(named: "1")) -> RetrieveImageTask {
@@ -26,7 +39,7 @@ extension Kingfisher where Base: UIButton {
         return setImage(with: URL(string: urlString ?? ""), for: state, placeholder: placeholder, options: [.transition(.fade(0.5))])
     }
 }
-
+*/
 // MARK: -
 // MARK: - 提示框自定义
 //展示普通文本
@@ -42,7 +55,7 @@ func rkShowHud(title:String){
     hud.bezelView.blurEffectStyle = .dark
     hud.mode = .customView
     hud.removeFromSuperViewOnHide = true
-    hud.hide(animated: false, afterDelay: 1)
+    hud.hide(animated: false, afterDelay: 1.5)
 }
 //加载中
 func rkLoadingHud() {

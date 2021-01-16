@@ -22,6 +22,8 @@ pod 'IQKeyboardManagerSwift','6.4.1'
 pod 'EmptyDataSet-Swift','4.2.0'
 pod 'UINavigation-SXFixSpace','1.2.4'
 
+pod 'RxSwift', '6.0.0'
+pod 'RxCocoa', '6.0.0'
 
 
 

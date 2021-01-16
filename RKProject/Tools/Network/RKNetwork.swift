@@ -8,7 +8,7 @@
 import Foundation
 
 import Moya
-import Result
+//import Result
 import HandyJSON
 
 let timeoutClosure = {(endpoint: Endpoint, closure: MoyaProvider<RKApi>.RequestResultClosure) -> Void in
@@ -37,6 +37,43 @@ public class RKNetwork {
         }
         rkprovider.request(target as! RKApi) { (result) in
             rkHideHud()
+            
+            switch result {
+            case let .success(response):
+                let netStatusCode = response.statusCode
+                if netStatusCode == 200{
+                    let model = try? response.rkmapModel(RKRespData<H>.self)
+                    let serverRet = model?.ret
+                    if serverRet == 200 {
+                        let serverDataDic = model?.data?.toJSON()
+                        let serverCode = serverDataDic?["code"];
+                        if let serLogCode = serverCode as? Int,serLogCode == 700 {
+                            rkprint("need-log")
+                            /*
+                            let cuss = RkProjectTestVC()
+                            rkTopVC?.navigationController?.pushViewController(cuss, animated: true)
+                            */
+                            return
+                        }
+                        let dataDic = dataToDic(data: response.data )
+                        var jsonDic:[String:Any] = [:]
+                        if let dic = dataDic?["data"] {
+                            jsonDic = dic as! [String : Any]
+                        }
+                        success(model?.data,jsonDic)
+                    }else {
+                        let erroMessage = "Service Error " + (model?.msg ?? "")
+                        failureHandle(failure: failure, statusCode: serverRet, message: erroMessage)
+                    }
+                }else {
+                    let erroMessage = "Req Error " + String(response.description)
+                    failureHandle(failure: failure, statusCode: netStatusCode, message: erroMessage)
+                }
+            case let .failure(error):
+                let erroMessage = "Net Error " + String(error.errorDescription ?? "")
+                failureHandle(failure: failure, statusCode: error.errorCode, message: erroMessage)
+            }
+            /*
             let netStatusCode = result.value?.statusCode
             if netStatusCode == 200{
                 let model = try? result.value?.rkmapModel(RKRespData<H>.self)
@@ -66,6 +103,7 @@ public class RKNetwork {
                 let erroMessage = "Net Error " + String(result.value?.description ?? "")
                 failureHandle(failure: failure, statusCode: netStatusCode, message: erroMessage)
             }
+            */
             /*
             switch result {
             case let .success(response):
@@ -96,7 +134,7 @@ public class RKNetwork {
     }
     
     //打印控制
-    static let rklogPlugin = RKRequestLogPlugin(verbose: true, cURL: false, response: true, requestDataFormatter: {data -> String in
+    static let rklogPlugin = RKRequestLogPlugin(verbose: true, cURL: false, response: false, requestDataFormatter: {data -> String in
         return String(data: data, encoding: .utf8) ?? ""
     }) { (data) -> (Data) in
         do {

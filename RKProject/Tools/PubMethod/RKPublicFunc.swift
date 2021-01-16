@@ -37,7 +37,10 @@ func rkNextResponsder(currentView: UIView) -> UIViewController {
 }
 
 // MARK: - 尺寸大小转换【以 375 为基准】
-struct RKLayout {
+func rklayout(_ originSize:CGFloat) -> CGFloat {
+    return RKLayout.layout(originSize)
+}
+private struct RKLayout {
     static let ratio:CGFloat = UIScreen.main.bounds.width / 375.0
     static func layout(_ number: CGFloat) -> CGFloat { return (number * ratio) }
 }

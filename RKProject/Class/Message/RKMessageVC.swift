@@ -7,7 +7,7 @@
 
 import UIKit
 
-import Kingfisher
+//import Kingfisher
 
 class RKMessageVC: RKBaseVC {
 
@@ -93,7 +93,10 @@ extension RKMessageVC :UITableViewDelegate,UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: RKMessageCell.self)
         let imgStr = dataArray[indexPath.row]["icon"]
         //cell.leftIV.kf.setImage(with: URL(string: imgStr!))
-        cell.leftIV.kf.setImage(urlString: imgStr)
+//        cell.leftIV.kf.setImage(urlString: imgStr)
+        cell.leftIV.rksetImage(urlString: imgStr)
+        cell.contentBtn.rksetImage(urlString: imgStr, for: .normal)
+        
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -144,7 +144,7 @@ class RKAlertView: UIView {
                     self.addSubview(btn)
                     btn.snp.makeConstraints({ (make) in
                         make.bottom.equalTo(self.snp.bottom).offset(-rkTabBarSafeSpace)
-                        make.height.equalTo(RKLayout.layout(40))
+                        make.height.equalTo(rklayout(40))
                         make.centerX.equalToSuperview()
                         make.width.equalTo(alertSuperView).multipliedBy(0.9)
                     })
@@ -156,7 +156,7 @@ class RKAlertView: UIView {
                     bgView.addSubview(btn)
                     btn.snp.makeConstraints({ (make) in
                         make.bottom.equalTo(curLayout).offset(-lastSpace)
-                        make.height.equalTo(RKLayout.layout(40))
+                        make.height.equalTo(rklayout(40))
                         make.centerX.equalToSuperview()
                         make.width.equalTo(alertSuperView).multipliedBy(0.9)
                     })

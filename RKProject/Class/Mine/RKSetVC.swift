@@ -28,7 +28,7 @@ class RKSetVC: RKBaseVC {
         languageBtn.snp.makeConstraints { (make) in
             make.centerX.equalTo(view)
             make.top.equalTo(naviView.snp.bottom).offset(60)
-            make.height.equalTo(RKLayout.layout(50))
+            make.height.equalTo(rklayout(50))
         }
         
     }

@@ -28,7 +28,7 @@ class RKMineCell: RKBaseTableCell {
     override func configCellUI() {
         addSubview(leftIV)
         leftIV.snp.makeConstraints { (make) in
-            make.width.height.equalTo(RKLayout.layout(40))
+            make.width.height.equalTo(rklayout(40))
             make.centerY.equalTo(self)
             make.left.equalTo(15)
         }

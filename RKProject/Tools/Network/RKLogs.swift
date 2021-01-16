@@ -8,7 +8,7 @@
 import Foundation
 
 import Moya
-import Result
+//import Result
 // MARK: -
 // MARK: - 日志打印
 public final class RKRequestLogPlugin: PluginType {

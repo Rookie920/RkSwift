@@ -96,7 +96,10 @@ class RKTabBarController: UITabBarController {
     
     @objc private func centerBtnClick(){
         
-        rkprint("ooooooooooocenter");
+        //rkprint("ooooooooooocenter");
+        
+        let cuss = RkProjectTestVC()
+        UIApplication.shared.pushViewController(cuss, animated: true)
     }
     
 }
