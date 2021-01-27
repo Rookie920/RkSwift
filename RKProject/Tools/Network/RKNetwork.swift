@@ -11,7 +11,7 @@ import Moya
 //import Result
 import HandyJSON
 
-let timeoutClosure = {(endpoint: Endpoint, closure: MoyaProvider<RKApi>.RequestResultClosure) -> Void in
+let timeoutClosure = {(endpoint: Endpoint, closure: MoyaProvider<RKHomeApi>.RequestResultClosure) -> Void in
     if var urlRequest = try? endpoint.urlRequest() {
         urlRequest.timeoutInterval = 20
         closure(.success(urlRequest))
@@ -19,7 +19,7 @@ let timeoutClosure = {(endpoint: Endpoint, closure: MoyaProvider<RKApi>.RequestR
         closure(.failure(MoyaError.requestMapping(endpoint.url)))
     }
 }
-let rkprovider = MoyaProvider<RKApi>(requestClosure: timeoutClosure,plugins:[
+let rkprovider = MoyaProvider<RKHomeApi>(requestClosure: timeoutClosure,plugins:[
     RKServicePlugin(),          //接口
     RKReqCommonParamsPlugin(),  // 拼接公共参数
     RKNetwork.rklogPlugin,      // 日志控制
@@ -35,7 +35,7 @@ public class RKNetwork {
                 rkLoadingHud()
             }
         }
-        rkprovider.request(target as! RKApi) { (result) in
+        rkprovider.request(target as! RKHomeApi) { (result) in
             rkHideHud()
             
             switch result {
@@ -132,9 +132,8 @@ public class RKNetwork {
             }
         }
     }
-    
     //打印控制
-    static let rklogPlugin = RKRequestLogPlugin(verbose: true, cURL: false, response: false, requestDataFormatter: {data -> String in
+    static let rklogPlugin = RKRequestLogPlugin(isSend: false, isReq: false, isResVerbose: false, isRes: true, requestDataFormatter: {data -> String in
         return String(data: data, encoding: .utf8) ?? ""
     }) { (data) -> (Data) in
         do {

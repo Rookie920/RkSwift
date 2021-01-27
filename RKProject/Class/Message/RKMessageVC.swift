@@ -58,7 +58,7 @@ class RKMessageVC: RKBaseVC {
         
     }
     override func clickNaviRightBtn() {
-        RKNetwork.rkloadData(target: RKApi.homeConfig, model: HomeConfigData.self, showHud: true) { [self] (returnData, jsonData) in
+        RKNetwork.rkloadData(target: RKHomeApi.homeConfig, model: HomeConfigData.self, showHud: true) { [self] (returnData, jsonData) in
             guard let info = returnData?.info , info.count > 0 else {
                 rkShowHud(title: rkLocalized(key: "信息错误"))
                 return

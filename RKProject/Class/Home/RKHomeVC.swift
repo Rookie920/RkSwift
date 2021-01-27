@@ -43,7 +43,7 @@ class RKHomeVC: RKBaseVC {
         rkprint("type2:\(infoDic!["RKTestKey1"] ?? "==")")
         */
         
-        RKNetwork.rkloadData(target: RKApi.homeConfig, model: HomeConfigData.self, showHud: true) { [self] (returnData, jsonData) in
+        RKNetwork.rkloadData(target: RKHomeApi.homeConfig, model: HomeConfigData.self, showHud: true) { [self] (returnData, jsonData) in
             guard let info = returnData?.info , info.count > 0 else {
                 rkShowHud(title: rkLocalized(key: "信息错误"))
                 return

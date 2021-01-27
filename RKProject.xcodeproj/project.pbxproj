@@ -29,10 +29,13 @@
 		9C0370C9256913D10004D613 /* RKProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0370C8256913D10004D613 /* RKProperty.swift */; };
 		9C16C53C2580AEE3007B940A /* RKNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16C53B2580AEE3007B940A /* RKNetwork.swift */; };
 		9C16C5452580BAE9007B940A /* RKApiConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16C5442580BAE9007B940A /* RKApiConfig.swift */; };
-		9C16C5482580BAFE007B940A /* RKApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16C5472580BAFE007B940A /* RKApi.swift */; };
-		9C16C54B2580BB11007B940A /* RKModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16C54A2580BB11007B940A /* RKModel.swift */; };
+		9C16C5482580BAFE007B940A /* RKHomeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16C5472580BAFE007B940A /* RKHomeApi.swift */; };
+		9C16C54B2580BB11007B940A /* RKHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16C54A2580BB11007B940A /* RKHomeModel.swift */; };
 		9C16C54E2580BC4E007B940A /* RKLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16C54D2580BC4E007B940A /* RKLinks.swift */; };
+		9C586B6425C0FCEA00F00B0D /* RKModelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C586B6325C0FCEA00F00B0D /* RKModelConfig.swift */; };
 		9C611EC725B2B7B400CEDDC8 /* RKRxOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C611EC625B2B7B400CEDDC8 /* RKRxOperators.swift */; };
+		9C67A0E325C102680052889A /* RKLiveApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C67A0E225C102680052889A /* RKLiveApi.swift */; };
+		9C67A0E625C102780052889A /* RKLiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C67A0E525C102780052889A /* RKLiveModel.swift */; };
 		9C6CC3FD257A5B8F00936284 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9C6CC3FF257A5B8F00936284 /* InfoPlist.strings */; };
 		9C6CC404257A5BC800936284 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9C6CC406257A5BC800936284 /* Localizable.strings */; };
 		9C6CC40A257A5DAB00936284 /* RKLanguageTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6CC409257A5DAB00936284 /* RKLanguageTool.swift */; };
@@ -97,10 +100,13 @@
 		9C0370C8256913D10004D613 /* RKProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKProperty.swift; sourceTree = "<group>"; };
 		9C16C53B2580AEE3007B940A /* RKNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKNetwork.swift; sourceTree = "<group>"; };
 		9C16C5442580BAE9007B940A /* RKApiConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKApiConfig.swift; sourceTree = "<group>"; };
-		9C16C5472580BAFE007B940A /* RKApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKApi.swift; sourceTree = "<group>"; };
-		9C16C54A2580BB11007B940A /* RKModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKModel.swift; sourceTree = "<group>"; };
+		9C16C5472580BAFE007B940A /* RKHomeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKHomeApi.swift; sourceTree = "<group>"; };
+		9C16C54A2580BB11007B940A /* RKHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKHomeModel.swift; sourceTree = "<group>"; };
 		9C16C54D2580BC4E007B940A /* RKLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKLinks.swift; sourceTree = "<group>"; };
+		9C586B6325C0FCEA00F00B0D /* RKModelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKModelConfig.swift; sourceTree = "<group>"; };
 		9C611EC625B2B7B400CEDDC8 /* RKRxOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKRxOperators.swift; sourceTree = "<group>"; };
+		9C67A0E225C102680052889A /* RKLiveApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKLiveApi.swift; sourceTree = "<group>"; };
+		9C67A0E525C102780052889A /* RKLiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKLiveModel.swift; sourceTree = "<group>"; };
 		9C6CC3F7257A5B3800936284 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		9C6CC3F8257A5B3800936284 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		9C6CC3FE257A5B8F00936284 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -296,11 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				9CB187772584666E000FF2C9 /* RKLogs.swift */,
-				9C16C54D2580BC4E007B940A /* RKLinks.swift */,
 				9C16C53B2580AEE3007B940A /* RKNetwork.swift */,
-				9C16C5442580BAE9007B940A /* RKApiConfig.swift */,
-				9C16C5472580BAFE007B940A /* RKApi.swift */,
-				9C16C54A2580BB11007B940A /* RKModel.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -311,6 +313,36 @@
 				9C0370C8256913D10004D613 /* RKProperty.swift */,
 			);
 			path = Property;
+			sourceTree = "<group>";
+		};
+		9C586B6025C0FBB500F00B0D /* Api+Model */ = {
+			isa = PBXGroup;
+			children = (
+				9C16C54D2580BC4E007B940A /* RKLinks.swift */,
+				9C16C5442580BAE9007B940A /* RKApiConfig.swift */,
+				9C586B6325C0FCEA00F00B0D /* RKModelConfig.swift */,
+				9C67A0DC25C102100052889A /* live */,
+				9C586B6625C0FD4200F00B0D /* home */,
+			);
+			path = "Api+Model";
+			sourceTree = "<group>";
+		};
+		9C586B6625C0FD4200F00B0D /* home */ = {
+			isa = PBXGroup;
+			children = (
+				9C16C5472580BAFE007B940A /* RKHomeApi.swift */,
+				9C16C54A2580BB11007B940A /* RKHomeModel.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		9C67A0DC25C102100052889A /* live */ = {
+			isa = PBXGroup;
+			children = (
+				9C67A0E225C102680052889A /* RKLiveApi.swift */,
+				9C67A0E525C102780052889A /* RKLiveModel.swift */,
+			);
+			path = live;
 			sourceTree = "<group>";
 		};
 		9C6CC3F5257A5AB600936284 /* Functions */ = {
@@ -465,13 +497,14 @@
 			isa = PBXGroup;
 			children = (
 				9C16C5342580A07E007B940A /* Test */,
-				9CE3659E256CEA6C00E7BD6D /* Tools */,
+				9C586B6025C0FBB500F00B0D /* Api+Model */,
+				9C037097256910210004D613 /* AppDelegate */,
 				9C0370C32569133F0004D613 /* Base */,
-				9C037098256910780004D613 /* RKTab */,
 				9C03709C256912950004D613 /* Class */,
 				9C6CC3F5257A5AB600936284 /* Functions */,
-				9C037097256910210004D613 /* AppDelegate */,
 				9C037095256910070004D613 /* Other */,
+				9C037098256910780004D613 /* RKTab */,
+				9CE3659E256CEA6C00E7BD6D /* Tools */,
 			);
 			path = RKProject;
 			sourceTree = "<group>";
@@ -632,6 +665,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C03709A256912760004D613 /* RKTabBarController.swift in Sources */,
+				9C67A0E625C102780052889A /* RKLiveModel.swift in Sources */,
 				9C6CC40A257A5DAB00936284 /* RKLanguageTool.swift in Sources */,
 				9CE365E7256F426D00E7BD6D /* RKAlertView.swift in Sources */,
 				9CE365A1256CEAFE00E7BD6D /* RKPublicFunc.swift in Sources */,
@@ -642,11 +676,13 @@
 				9CE365BF256DEF0200E7BD6D /* RKNavigationController.swift in Sources */,
 				9CB187782584666F000FF2C9 /* RKLogs.swift in Sources */,
 				9C16C5452580BAE9007B940A /* RKApiConfig.swift in Sources */,
-				9C16C5482580BAFE007B940A /* RKApi.swift in Sources */,
+				9C16C5482580BAFE007B940A /* RKHomeApi.swift in Sources */,
 				9C611EC725B2B7B400CEDDC8 /* RKRxOperators.swift in Sources */,
 				9C6CC40F257B1EB500936284 /* RKMineCell.swift in Sources */,
 				9CE365CC256E592100E7BD6D /* RKHomeVC.swift in Sources */,
+				9C586B6425C0FCEA00F00B0D /* RKModelConfig.swift in Sources */,
 				9CE3657F256C98CF00E7BD6D /* RKExtension.swift in Sources */,
+				9C67A0E325C102680052889A /* RKLiveApi.swift in Sources */,
 				9CE365D5256E596100E7BD6D /* RKMineVC.swift in Sources */,
 				9CFA03CB2568A6C3001FF834 /* AppDelegate.swift in Sources */,
 				9CE365CF256E593700E7BD6D /* RKMessageVC.swift in Sources */,
@@ -657,7 +693,7 @@
 				9CE365D2256E595000E7BD6D /* RKDiscoverVC.swift in Sources */,
 				9CE36582256CADCB00E7BD6D /* RkProjectTestVC.swift in Sources */,
 				9C16C54E2580BC4E007B940A /* RKLinks.swift in Sources */,
-				9C16C54B2580BB11007B940A /* RKModel.swift in Sources */,
+				9C16C54B2580BB11007B940A /* RKHomeModel.swift in Sources */,
 				9C6CC418257B2AB900936284 /* RKSetVC.swift in Sources */,
 				9CFA03CD2568A6C3001FF834 /* SceneDelegate.swift in Sources */,
 				9C16C53C2580AEE3007B940A /* RKNetwork.swift in Sources */,

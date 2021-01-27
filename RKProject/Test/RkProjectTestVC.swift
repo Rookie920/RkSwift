@@ -399,7 +399,7 @@ class RkProjectTestVC: RKBaseVC {
         */
     
         /*
-        RKNetwork.rkloadData(target: RKApi.homeConfig, model: HomeConfigModel.self, showHud: true)
+        RKNetwork.rkloadData(target: RKHomeApi.homeConfig, model: HomeConfigModel.self, showHud: true)
         { (returnData, returnDic) in
             
         } failure: { (errorCode, errorDes) in
